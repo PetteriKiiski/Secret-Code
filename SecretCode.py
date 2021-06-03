@@ -21,34 +21,52 @@ PurpleBead = pygame.image.load("Images/PurpleBead.png")
 RedBead = pygame.image.load("Images/RedBead.png")
 WhiteBead = pygame.image.load("Images/WhiteBead.png")
 YellowBead = pygame.image.load("Images/YellowBead.png")
-#Clues
+#Constants
+RED = RedBead
+ORANGE = OrangeBead
+YELLOW = YellowBead
+GREEN = GreenBead
+BLUE = BlueBead
+PURPLE = PurpleBead
+PINK = PinkBead
+WHITE = WhiteBead
+#Variables
 clues = []
+buttonMode = None
 #Actions
 def RedButton(): #RedButton Action
-	pass
+	print ("BUTTON RED")
+	buttonMode = 
 def OrangeButton(): #OrangeButton Action
-	pass
+	print ("BUTTON ORANGE")
+	buttonMode = 
 def YellowButton(): #YellowButton Action
-	pass
+	print ("BUTTON YELLOW")
+	buttonMode = 
 def GreenButton(): #GreenButton Action
-	pass
+	print ("BUTTON GREEN")
+	buttonMode = 
 def BlueButton(): #BlueButton Action
-	pass
+	print ("BUTTON BLUE")
+	buttonMode = 
 def PurpleButton(): #PurpleButton Action
-	pass
+	print ("BUTTON PURPLE")
+	buttonMode = 
 def PinkButton(): #PinkButton Action
-	pass
+	print ("BUTTON PINK")
+	buttonMode = 
 def WhiteButton(): #WhiteButton Action
-	pass
+	print ("BUTTON WHITE")
+	buttonMode = 
 #Buttons
-buttons = {pygame.Rect(475, 100, 50, 50):RedButton, \
-	pygame.Rect(475, 150, 50, 50):OrangeButton, \
-	pygame.Rect(475, 200, 50, 50):YellowButton, \
-	pygame.Rect(475, 250, 50, 50):GreenButton, \
-	pygame.Rect(475, 300, 50, 50):BlueButton, \
-	pygame.Rect(475, 350, 50, 50):PurpleButton, \
-	pygame.Rect(475, 400, 50, 50):PinkButton, \
-	pygame.Rect(475, 450, 50, 50):WhiteButton}
+buttons = {(475, 100, 50, 50):RedButton, \
+	(475, 150, 50, 50):OrangeButton, \
+	(475, 200, 50, 50):YellowButton, \
+	(475, 250, 50, 50):GreenButton, \
+	(475, 300, 50, 50):BlueButton, \
+	(475, 350, 50, 50):PurpleButton, \
+	(475, 400, 50, 50):PinkButton, \
+	(475, 450, 50, 50):WhiteButton}
 #Infinite Loop
 while True:
 	#Clear screen
@@ -56,14 +74,14 @@ while True:
 	#Display
 	canvas.blit(Title, (0, 0))
 	canvas.blit(SideBar, (400, 0))
-	canvas.blit(pygame.Rect(475, 100))
-	canvas.blit(pygame.Rect(475, 150))
-	canvas.blit(pygame.Rect(475, 200))
-	canvas.blit(pygame.Rect(475, 250))
-	canvas.blit(pygame.Rect(475, 300))
-	canvas.blit(pygame.Rect(475, 350))
-	canvas.blit(pygame.Rect(475, 400))
-	canvas.blit(pygame.Rect(475, 450))
+	canvas.blit(RedBead, (475, 100))
+	canvas.blit(OrangeBead, (475, 150))
+	canvas.blit(YellowBead, (475, 200))
+	canvas.blit(GreenBead, (475, 250))
+	canvas.blit(BlueBead, (475, 300))
+	canvas.blit(PurpleBead, (475, 350))
+	canvas.blit(PinkBead, (475, 400))
+	canvas.blit(WhiteBead, (475, 450))
 	for x in range(110, 370, 80):
 		for y in range(100, 600, 50):
 			canvas.blit(BigHole, (x, y))
@@ -79,6 +97,6 @@ while True:
 		if event.type == MOUSEBUTTONDOWN:
 			pos = pygame.mouse.get_pos()
 			for button in list(buttons.keys()):
-				if button.collidepoint(pos):
+				if pygame.Rect(*button).collidepoint(pos):
 					buttons[button]()
 	pygame.display.update()
