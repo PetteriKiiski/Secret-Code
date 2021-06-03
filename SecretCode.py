@@ -4,9 +4,10 @@ from pygame.locals import *
 from SecretCodeModule import *
 #Initialize
 pygame.init()
-canvas = pygame.display.set_mode((400, 600))
+canvas = pygame.display.set_mode((600, 600))
 pygame.display.set_caption("Secret Code")
 #Loading
+SideBar = pygame.image.load("Images/SideBar.png")
 Title = pygame.image.load("Images/Title.png")
 BigHole = pygame.image.load("Images/BigHole.png")
 BlueBead = pygame.image.load("Images/BlueBead.png")
@@ -28,6 +29,7 @@ while True:
 	canvas.fill((255, 255, 255))
 	#Display
 	canvas.blit(Title, (0, 0))
+	canvas.blit(SideBar, (400, 0))
 	for x in range(110, 370, 80):
 		for y in range(100, 600, 50):
 			canvas.blit(BigHole, (x, y))
