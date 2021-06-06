@@ -55,6 +55,7 @@ def SecretCode(*clues):
 							del possibles[-1]
 							break
 	return possibles
+#print (get_clue([2, 6, 2, 7], [1, 2, 3, 4]))
 #print (translate(SecretCode([[1, 2, 3, 4], 1, 0], [[5, 6, 7, 8], 1, 0])))
 #print (len(SecretCode([[1, 2, 3, 4], 1, 0], [[5, 6, 7, 8], 1, 0])))
 #Code:3, 2, 2, 3
